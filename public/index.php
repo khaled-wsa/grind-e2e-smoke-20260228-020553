@@ -136,15 +136,10 @@ if ($path === '/logout' && $method === 'POST') {
 if ($path === '/dashboard' && $method === 'GET') {
     require_authentication();
     $email = current_user_email() ?? '';
-    $content = '<div class="card"><p>You are signed in as <strong>' . e($email) . '</strong>.</p>
-        <form method="post" action="/logout">
-            <input type="hidden" name="_csrf_token" value="' . e(csrf_token()) . '">
-            <button type="submit">Logout</button>
-        </form></div>';
+    $content = dashboard_page_content($email, csrf_token());
     render_page('Dashboard', $content);
     exit;
 }
 
 http_response_code(404);
 render_page('Not Found', '<p>The requested page does not exist.</p>');
-
