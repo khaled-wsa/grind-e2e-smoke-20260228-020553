@@ -23,3 +23,17 @@ Security baseline included:
 - CSRF token validation on all POST forms.
 - `session_regenerate_id(true)` on login (session fixation mitigation).
 - Basic input validation and generic auth failure messages.
+
+## Data storage
+
+- SQLite database file: `storage/app.sqlite`.
+- Schema is created automatically at boot.
+- Tables: `users` and `dashboard_records`.
+
+## Seed demo data
+
+```bash
+php scripts/seed_demo.php
+```
+
+Creates a demo user (`demo@example.com`) and sample dashboard activity records.
