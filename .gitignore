@@ -1,2 +1,4 @@
 storage/users.json
-
+storage/*.sqlite
+storage/*.sqlite-shm
+storage/*.sqlite-wal
